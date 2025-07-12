@@ -1,4 +1,4 @@
-let movies = [
+const movies = [
   // Telugu - Popular
   { name: "RRR", genre: "Action", rating: 9.0, language: "Telugu" },
   { name: "Pushpa", genre: "Action", rating: 8.2, language: "Telugu" },
@@ -72,20 +72,38 @@ let movies = [
   { name: "Bheja Fry", genre: "Comedy", rating: 7.6, language: "Hindi" },
 ];
 
-function filterByGenre(selectedGenre) {
-  const movieListDiv = document.getElementById("movie-list");
-  movieListDiv.innerHTML = "";
+function selectGenre(genre) {
+  const genreSection = document.getElementById('genre-selection');
+  const movieSection = document.getElementById('movie-section');
+  const movieList = document.getElementById('movie-list');
 
-  const filtered = movies.filter(movie => movie.genre.toLowerCase() === selectedGenre.toLowerCase());
+  genreSection.style.display = 'none';
+  movieSection.style.display = 'block';
 
-  if (filtered.length === 0) {
-    movieListDiv.innerHTML = `<p>No movies found in this genre.</p>`;
-    return;
-  }
+  movieList.innerHTML = '';
+
+  let filtered = genre === 'All' ? movies : movies.filter(movie => movie.genre === genre);
+  filtered.sort((a, b) => b.rating - a.rating);
 
   filtered.forEach(movie => {
-    const div = document.createElement("div");
-    div.innerHTML = `<strong>${movie.name}</strong> (${movie.rating}/10) - ${movie.language}`;
-    movieListDiv.appendChild(div);
+    const box = document.createElement('div');
+    box.className = 'movie-box';
+    box.innerHTML = `
+      <strong>${movie.name}</strong><br>
+      ⭐ Rating: ${movie.rating}<br>
+      🎬 Genre: ${movie.genre}<br>
+      🗣️ Language: ${movie.language}
+    `;
+    movieList.appendChild(box);
   });
 }
+
+function goBack() {
+  document.getElementById('genre-selection').style.display = 'flex';
+  document.getElementById('movie-section').style.display = 'none';
+}
+
+// Dark/Light Mode Toggle
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
