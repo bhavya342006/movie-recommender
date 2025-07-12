@@ -2,25 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Movie Recommender</title>
+  <title>🎬 Movie Recommender</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎬 Movie Recommender</h1>
+  <h1>Movie Recommender</h1>
 
-  <input type="text" id="searchInput" placeholder="Search movies..." />
+  <div id="genre-buttons">
+    <button onclick="filterByGenre('Comedy')">Comedy</button>
+    <button onclick="filterByGenre('Horror')">Horror</button>
+    <button onclick="filterByGenre('Family')">Family</button>
+    <button onclick="filterByGenre('Romantic')">Romantic</button>
+    <button onclick="filterByGenre('Action')">Action</button>
+  </div>
 
-  <select id="genreFilter">
-    <option value="all">All Genres</option>
-    <option value="comedy">Comedy</option>
-    <option value="horror">Horror</option>
-    <option value="family">Family</option>
-    <option value="romantic">Romantic</option>
-  </select>
-
-  <button onclick="sortByRating()">🔽 Sort by Rating</button>
-
-  <div id="movieList"></div>
+  <div id="movie-list"></div>
 
   <script src="script.js"></script>
 </body>
