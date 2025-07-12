@@ -1,5 +1,7 @@
-let movies = [
-  // Telugu - Popular
+
+ 
+const movies = [
+  // Telugu Movies
   { name: "RRR", genre: "Action", rating: 9.0, language: "Telugu" },
   { name: "Pushpa", genre: "Action", rating: 8.2, language: "Telugu" },
   { name: "Baahubali: The Beginning", genre: "Action", rating: 8.0, language: "Telugu" },
@@ -8,8 +10,6 @@ let movies = [
   { name: "Jathi Ratnalu", genre: "Comedy", rating: 7.8, language: "Telugu" },
   { name: "Eega", genre: "Family", rating: 7.7, language: "Telugu" },
   { name: "Ala Vaikunthapurramuloo", genre: "Family", rating: 8.0, language: "Telugu" },
-
-  // Telugu - Underrated
   { name: "Agent Sai Srinivasa Athreya", genre: "Comedy", rating: 8.4, language: "Telugu" },
   { name: "Brochevarevarura", genre: "Comedy", rating: 8.3, language: "Telugu" },
   { name: "Goodachari", genre: "Action", rating: 7.9, language: "Telugu" },
@@ -18,8 +18,6 @@ let movies = [
   { name: "Colour Photo", genre: "Romantic", rating: 8.3, language: "Telugu" },
   { name: "Pelli Choopulu", genre: "Romantic", rating: 8.2, language: "Telugu" },
   { name: "Mental Madhilo", genre: "Romantic", rating: 7.6, language: "Telugu" },
-
-  // Telugu - Extra
   { name: "Hi Nanna", genre: "Romantic", rating: 8.1, language: "Telugu" },
   { name: "Dasara", genre: "Action", rating: 7.8, language: "Telugu" },
   { name: "Sarkaru Vaari Paata", genre: "Action", rating: 6.8, language: "Telugu" },
@@ -36,7 +34,7 @@ let movies = [
   { name: "Balagam", genre: "Family", rating: 8.3, language: "Telugu" },
   { name: "Paper Boy", genre: "Romantic", rating: 7.0, language: "Telugu" },
 
-  // Hindi - Popular
+  // Hindi Movies
   { name: "3 Idiots", genre: "Comedy", rating: 8.4, language: "Hindi" },
   { name: "Dangal", genre: "Family", rating: 8.3, language: "Hindi" },
   { name: "Chhichhore", genre: "Comedy", rating: 8.0, language: "Hindi" },
@@ -45,16 +43,12 @@ let movies = [
   { name: "Yeh Jawaani Hai Deewani", genre: "Romantic", rating: 7.2, language: "Hindi" },
   { name: "Zindagi Na Milegi Dobara", genre: "Family", rating: 8.2, language: "Hindi" },
   { name: "Kabir Singh", genre: "Romantic", rating: 7.0, language: "Hindi" },
-
-  // Hindi - Underrated
   { name: "Karwaan", genre: "Family", rating: 7.6, language: "Hindi" },
   { name: "Masaan", genre: "Romantic", rating: 8.1, language: "Hindi" },
   { name: "Piku", genre: "Family", rating: 7.6, language: "Hindi" },
   { name: "Udaan", genre: "Family", rating: 8.2, language: "Hindi" },
   { name: "Lootcase", genre: "Comedy", rating: 7.6, language: "Hindi" },
   { name: "Tumhari Sulu", genre: "Comedy", rating: 7.0, language: "Hindi" },
-
-  // Hindi - Extra
   { name: "Rockstar", genre: "Romantic", rating: 7.7, language: "Hindi" },
   { name: "Kai Po Che!", genre: "Family", rating: 7.8, language: "Hindi" },
   { name: "Barfi!", genre: "Romantic", rating: 8.1, language: "Hindi" },
@@ -73,34 +67,29 @@ let movies = [
 ];
 
 function selectGenre(genre) {
-  document.getElementById('genre-selection').style.display = 'none';
-  document.getElementById('movie-section').style.display = 'block';
-
+  const genreDiv = document.getElementById('genre-selection');
+  const movieSection = document.getElementById('movie-section');
   const movieList = document.getElementById('movie-list');
+  genreDiv.style.display = 'none';
+  movieSection.style.display = 'block';
+
+  let filtered = genre === 'All' ? movies : movies.filter(m => m.genre === genre);
   movieList.innerHTML = '';
-
-  const filteredMovies = genre === 'All' ? movies : movies.filter(m => m.genre === genre);
-  const sortedMovies = filteredMovies.sort((a, b) => b.rating - a.rating);
-
-  sortedMovies.forEach(movie => {
+  filtered.forEach(m => {
     const div = document.createElement('div');
     div.className = 'movie-box';
-    div.innerHTML = `
-      <strong>${movie.name}</strong><br>
-      ⭐ Rating: ${movie.rating}<br>
-      🎬 Genre: ${movie.genre}<br>
-      🌐 Language: ${movie.language}
-    `;
+    div.innerHTML = `<strong>${m.name}</strong><br>⭐ Rating: ${m.rating}<br>🎬 Genre: ${m.genre}<br>🗣️ Language: ${m.language}`;
     movieList.appendChild(div);
   });
 }
 
 function goBack() {
-  document.getElementById('genre-selection').style.display = 'flex';
   document.getElementById('movie-section').style.display = 'none';
+  document.getElementById('genre-selection').style.display = 'flex';
 }
 
 document.getElementById('theme-toggle').addEventListener('click', () => {
   document.body.classList.toggle('dark');
 });
+
 
