@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Movie Recommender</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🎬 Movie Recommender</h1>
+
+  <input type="text" id="searchInput" placeholder="Search movies..." />
+
+  <select id="genreFilter">
+    <option value="all">All Genres</option>
+    <option value="comedy">Comedy</option>
+    <option value="horror">Horror</option>
+    <option value="family">Family</option>
+    <option value="romantic">Romantic</option>
+  </select>
+
+  <button onclick="sortByRating()">🔽 Sort by Rating</button>
+
+  <div id="movieList"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
