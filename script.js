@@ -1,4 +1,4 @@
-const movies = [
+let movies = [
   // Telugu - Popular
   { name: "RRR", genre: "Action", rating: 9.0, language: "Telugu" },
   { name: "Pushpa", genre: "Action", rating: 8.2, language: "Telugu" },
@@ -73,28 +73,25 @@ const movies = [
 ];
 
 function selectGenre(genre) {
-  const genreSection = document.getElementById('genre-selection');
-  const movieSection = document.getElementById('movie-section');
+  document.getElementById('genre-selection').style.display = 'none';
+  document.getElementById('movie-section').style.display = 'block';
+
   const movieList = document.getElementById('movie-list');
-
-  genreSection.style.display = 'none';
-  movieSection.style.display = 'block';
-
   movieList.innerHTML = '';
 
-  let filtered = genre === 'All' ? movies : movies.filter(movie => movie.genre === genre);
-  filtered.sort((a, b) => b.rating - a.rating);
+  const filteredMovies = genre === 'All' ? movies : movies.filter(m => m.genre === genre);
+  const sortedMovies = filteredMovies.sort((a, b) => b.rating - a.rating);
 
-  filtered.forEach(movie => {
-    const box = document.createElement('div');
-    box.className = 'movie-box';
-    box.innerHTML = `
+  sortedMovies.forEach(movie => {
+    const div = document.createElement('div');
+    div.className = 'movie-box';
+    div.innerHTML = `
       <strong>${movie.name}</strong><br>
       ⭐ Rating: ${movie.rating}<br>
       🎬 Genre: ${movie.genre}<br>
-      🗣️ Language: ${movie.language}
+      🌐 Language: ${movie.language}
     `;
-    movieList.appendChild(box);
+    movieList.appendChild(div);
   });
 }
 
@@ -103,7 +100,7 @@ function goBack() {
   document.getElementById('movie-section').style.display = 'none';
 }
 
-// Dark/Light Mode Toggle
 document.getElementById('theme-toggle').addEventListener('click', () => {
   document.body.classList.toggle('dark');
 });
+
