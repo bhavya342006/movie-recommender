@@ -7,21 +7,33 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <button id="theme-toggle">Toggle Dark/Light Mode</button>
-  <h1>Movie Recommender</h1>
-
-  <div id="genre-selection">
-    <button onclick="selectGenre('Comedy')">Comedy</button>
-    <button onclick="selectGenre('Horror')">Horror</button>
-    <button onclick="selectGenre('Family')">Family</button>
-    <button onclick="selectGenre('Romantic')">Romantic</button>
-    <button onclick="selectGenre('Action')">Action</button>
-    <button onclick="selectGenre('All')">All</button>
+  <div class="top-bar">
+    <h1>🎬 Movie Recommender</h1>
+    <button id="toggle-mode">Toggle Dark/Light Mode</button>
   </div>
 
-  <div id="movie-section" style="display: none;">
-    <button id="back-button" onclick="goBack()">Back</button>
-    <div id="movie-list"></div>
+  <div id="genre-screen">
+    <div class="genre-buttons">
+      <button onclick="filterGenre('Comedy')">Comedy</button>
+      <button onclick="filterGenre('Horror')">Horror</button>
+      <button onclick="filterGenre('Family')">Family</button>
+      <button onclick="filterGenre('Romantic')">Romantic</button>
+      <button onclick="filterGenre('Action')">Action</button>
+      <button onclick="filterGenre('All')">All</button>
+    </div>
+    <button id="randomBtn" onclick="showRandomMovie()">🎲 Recommend Me a Random Movie</button>
+  </div>
+
+  <div id="movie-screen" style="display: none;">
+    <button id="backBtn" onclick="goBack()">← Back to Genres</button>
+    <div id="movies-container"></div>
+  </div>
+
+  <div id="random-popup" class="hidden">
+    <div class="popup-content">
+      <span id="randomMovieText"></span>
+      <button onclick="closePopup()">Close</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
