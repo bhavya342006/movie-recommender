@@ -1,12 +1,12 @@
 
-
 /* Global styles */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #b3e5fc; /* light blue */
+  background-color: #b3e5fc;
   color: #222;
   transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
 }
 
 /* Dark mode */
@@ -18,20 +18,29 @@ body.dark-mode {
 /* Container styling */
 .container {
   text-align: center;
-  padding: 30px;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 /* Title */
 h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+  font-size: 3em;
+  margin-bottom: 30px;
 }
 
 /* Genre & control buttons */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
 .controls button {
-  margin: 6px;
-  padding: 10px 18px;
-  font-size: 15px;
+  padding: 12px 20px;
+  font-size: 16px;
   border: none;
   border-radius: 6px;
   background-color: #333;
@@ -49,19 +58,18 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 30px;
+  gap: 20px;
 }
 
-/* Individual movie box */
+/* Movie card styling */
 .movie-card {
-  background-color: #fff176; /* light yellow */
+  background-color: #fff176;
   border-radius: 10px;
-  padding: 15px;
-  margin: 10px;
-  width: 220px;
+  padding: 20px;
+  width: 240px;
+  font-size: 18px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   text-align: left;
-  font-size: 16px;
   transition: transform 0.2s;
 }
 
@@ -69,7 +77,7 @@ h1 {
   transform: scale(1.05);
 }
 
-/* Random popup styles */
+/* Popup styles */
 .popup {
   position: fixed;
   top: 0;
@@ -85,20 +93,20 @@ h1 {
 
 .popup-content {
   background: #fff;
-  padding: 25px 35px;
-  border-radius: 10px;
-  max-width: 400px;
+  padding: 30px 40px;
+  border-radius: 12px;
+  max-width: 500px;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 .popup-content button {
   margin-top: 20px;
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 10px 20px;
+  font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #222;
   color: white;
   cursor: pointer;
@@ -108,7 +116,6 @@ h1 {
   background-color: #444;
 }
 
-/* Hidden class */
 .hidden {
   display: none;
 }
@@ -117,5 +124,10 @@ h1 {
 @media (max-width: 600px) {
   .movie-card {
     width: 90%;
+  }
+
+  .popup-content {
+    width: 90%;
+    font-size: 18px;
   }
 }
