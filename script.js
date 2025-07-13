@@ -1,6 +1,4 @@
 
- 
-// Full movie list
 let movies = [
   // Telugu - Popular
   { name: "RRR", genre: "Action", rating: 9.0, language: "Telugu" },
@@ -72,17 +70,15 @@ let movies = [
   { name: "Bulbbul", genre: "Horror", rating: 6.5, language: "Hindi" },
   { name: "Tamasha", genre: "Romantic", rating: 7.3, language: "Hindi" },
   { name: "Raazi", genre: "Action", rating: 7.7, language: "Hindi" },
-  { name: "Bheja Fry", genre: "Comedy", rating: 7.6, language: "Hindi" }
+  { name: "Bheja Fry", genre: "Comedy", rating: 7.6, language: "Hindi" },
 ];
 
-// Filter movies by genre and show them
-function filterByGenre(genre) {
-  const container = document.getElementById("movies");
-  container.innerHTML = "";
+function filterMovies(genre) {
+  const movieList = document.getElementById("movie-list");
+  movieList.innerHTML = "";
 
-  let filteredMovies = genre === "All" ? movies : movies.filter(movie => movie.genre === genre);
-
-  filteredMovies.forEach(movie => {
+  const filtered = genre === "All" ? movies : movies.filter(movie => movie.genre === genre);
+  filtered.forEach(movie => {
     const card = document.createElement("div");
     card.className = "movie-card";
     card.innerHTML = `
@@ -91,28 +87,28 @@ function filterByGenre(genre) {
       Genre: ${movie.genre}<br>
       Language: ${movie.language}
     `;
-    container.appendChild(card);
+    movieList.appendChild(card);
   });
 }
 
-// Recommend a random movie
-function showRandomMovie() {
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
+
+function recommendRandomMovie() {
   const randomMovie = movies[Math.floor(Math.random() * movies.length)];
-  document.getElementById("randomMovieText").innerHTML = `
+  const popup = document.getElementById("popup");
+  const content = document.getElementById("popup-content");
+  content.innerHTML = `
     <strong>${randomMovie.name}</strong><br>
     Rating: ⭐ ${randomMovie.rating}<br>
     Genre: ${randomMovie.genre}<br>
     Language: ${randomMovie.language}
   `;
-  document.getElementById("popup").classList.remove("hidden");
+  popup.style.display = "block";
 }
 
-// Close the popup
 function closePopup() {
-  document.getElementById("popup").classList.add("hidden");
+  document.getElementById("popup").style.display = "none";
 }
 
-// Toggle Dark Mode
-document.getElementById("modeToggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-});
