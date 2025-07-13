@@ -1,5 +1,4 @@
 
-
 // Full movie list
 let movies = [
   // Telugu - Popular
