@@ -7,32 +7,26 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="top-bar">
+  <div class="container">
     <h1>🎬 Movie Recommender</h1>
-    <button id="toggle-mode">Toggle Dark/Light Mode</button>
-  </div>
-
-  <div id="genre-screen">
-    <div class="genre-buttons">
-      <button onclick="filterGenre('Comedy')">Comedy</button>
-      <button onclick="filterGenre('Horror')">Horror</button>
-      <button onclick="filterGenre('Family')">Family</button>
-      <button onclick="filterGenre('Romantic')">Romantic</button>
-      <button onclick="filterGenre('Action')">Action</button>
-      <button onclick="filterGenre('All')">All</button>
+    <div class="controls">
+      <button id="modeToggle">Toggle Dark/Light Mode</button>
+      <button onclick="filterByGenre('Comedy')">Comedy</button>
+      <button onclick="filterByGenre('Horror')">Horror</button>
+      <button onclick="filterByGenre('Family')">Family</button>
+      <button onclick="filterByGenre('Romantic')">Romantic</button>
+      <button onclick="filterByGenre('Action')">Action</button>
+      <button onclick="filterByGenre('All')">All</button>
+      <button class="random-btn" onclick="showRandomMovie()">🎲 Recommend Me a Random Movie</button>
     </div>
-    <button id="randomBtn" onclick="showRandomMovie()">🎲 Recommend Me a Random Movie</button>
-  </div>
 
-  <div id="movie-screen" style="display: none;">
-    <button id="backBtn" onclick="goBack()">← Back to Genres</button>
-    <div id="movies-container"></div>
-  </div>
+    <div id="movies" class="movie-list"></div>
 
-  <div id="random-popup" class="hidden">
-    <div class="popup-content">
-      <span id="randomMovieText"></span>
-      <button onclick="closePopup()">Close</button>
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
+        <span id="randomMovieText"></span>
+        <button onclick="closePopup()">Close</button>
+      </div>
     </div>
   </div>
 
