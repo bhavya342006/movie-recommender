@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Movie Recommender</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🎬 Movie Recommender</h1>
-
-    <div class="controls">
-      <button onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
-      <button onclick="filterMovies('Comedy')">Comedy</button>
-      <button onclick="filterMovies('Horror')">Horror</button>
-      <button onclick="filterMovies('Family')">Family</button>
-      <button onclick="filterMovies('Romantic')">Romantic</button>
-      <button onclick="filterMovies('Action')">Action</button>
-      <button onclick="filterMovies('All')">All</button>
-      <button onclick="showRandomMovie()">🎲 Recommend Me a Random Movie</button>
+    <div class="container">
+        <h1><span class="emoji">🎬</span> Movie Recommender</h1>
+        <div class="buttons">
+            <button onclick="toggleMode()">Toggle Dark/Light Mode</button>
+            <button onclick="filterMovies('Comedy')">Comedy</button>
+            <button onclick="filterMovies('Horror')">Horror</button>
+            <button onclick="filterMovies('Family')">Family</button>
+            <button onclick="filterMovies('Romantic')">Romantic</button>
+            <button onclick="filterMovies('Action')">Action</button>
+            <button onclick="filterMovies('All')">All</button>
+            <button onclick="showRandomMovie()"><span class="emoji">🎲</span> Recommend Me a Random Movie</button>
+        </div>
+        <div id="movie-list"></div>
     </div>
 
-    <div id="movieContainer" class="movie-grid"></div>
-  </div>
-
-  <!-- Popup -->
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span id="popupMovie"></span>
-      <br /><br />
-      <button onclick="closePopup()">Close</button>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <p id="random-movie-text"></p>
+            <button onclick="closePopup()">Close</button>
+        </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
