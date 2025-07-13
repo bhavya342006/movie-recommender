@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie Recommender</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🎬 Movie Recommender</h1>
-    <div class="button-container">
-      <button onclick="toggleMode()">Toggle Dark/Light Mode</button>
-      <button onclick="filterMovies('Comedy')">Comedy</button>
-      <button onclick="filterMovies('Horror')">Horror</button>
-      <button onclick="filterMovies('Family')">Family</button>
-      <button onclick="filterMovies('Romantic')">Romantic</button>
-      <button onclick="filterMovies('Action')">Action</button>
-      <button onclick="showAllMovies()">All</button>
-      <button onclick="recommendRandomMovie()">🎲 Recommend Me a Random Movie</button>
-    </div>
+  <h1>🎬 Movie Recommender</h1>
+  <div class="button-container">
+    <button onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+    <button onclick="filterMovies('Comedy')">Comedy</button>
+    <button onclick="filterMovies('Horror')">Horror</button>
+    <button onclick="filterMovies('Family')">Family</button>
+    <button onclick="filterMovies('Romantic')">Romantic</button>
+    <button onclick="filterMovies('Action')">Action</button>
+    <button onclick="showAllMovies()">All</button>
+    <button onclick="showRandomMovie()">🎲 Recommend Me a Random Movie</button>
+  </div>
 
-    <div id="movieList" class="movie-list"></div>
+  <div id="movieContainer" class="movie-container"></div>
 
-    <div id="popup" class="popup">
-      <div class="popup-content">
-        <p id="randomMovieText"></p>
-        <button onclick="closePopup()">Close</button>
-      </div>
-    </div>
+  <div id="popup" class="popup">
+    <div class="popup-content" id="popupContent"></div>
+    <button class="close-btn" onclick="closePopup()">Close</button>
   </div>
 
   <script src="script.js"></script>
