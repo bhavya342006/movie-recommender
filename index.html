@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Movie Recommender</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🎬 Movie Recommender</h1>
-    <div class="controls">
-      <button id="modeToggle">Toggle Dark/Light Mode</button>
-      <button onclick="filterByGenre('Comedy')">Comedy</button>
-      <button onclick="filterByGenre('Horror')">Horror</button>
-      <button onclick="filterByGenre('Family')">Family</button>
-      <button onclick="filterByGenre('Romantic')">Romantic</button>
-      <button onclick="filterByGenre('Action')">Action</button>
-      <button onclick="filterByGenre('All')">All</button>
-      <button class="random-btn" onclick="showRandomMovie()">🎲 Recommend Me a Random Movie</button>
-    </div>
+  <h1>🎬 Movie Recommender</h1>
 
-    <div id="movies" class="movie-list"></div>
+  <div id="genre-buttons">
+    <button onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+    <button onclick="filterMovies('Comedy')">Comedy</button>
+    <button onclick="filterMovies('Horror')">Horror</button>
+    <button onclick="filterMovies('Family')">Family</button>
+    <button onclick="filterMovies('Romantic')">Romantic</button>
+    <button onclick="filterMovies('Action')">Action</button>
+    <button onclick="filterMovies('All')">All</button>
+    <button onclick="recommendRandomMovie()">🎲 Recommend Me a Random Movie</button>
+  </div>
 
-    <div id="popup" class="popup hidden">
-      <div class="popup-content">
-        <span id="randomMovieText"></span>
-        <button onclick="closePopup()">Close</button>
-      </div>
-    </div>
+  <div id="movie-list"></div>
+
+  <div id="popup" class="popup" style="display: none;">
+    <div id="popup-content"></div>
+    <button onclick="closePopup()">Close</button>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
