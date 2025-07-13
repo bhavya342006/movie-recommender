@@ -8,24 +8,28 @@
 </head>
 <body>
   <div class="container">
-    <h1>🎬 Movie Recommender</h1>
-    <div class="controls">
+    <header>
+      <h1>🎬 Movie Recommender</h1>
       <button id="modeToggle">Toggle Dark/Light Mode</button>
+    </header>
+
+    <div class="buttons">
       <button onclick="filterByGenre('Comedy')">Comedy</button>
       <button onclick="filterByGenre('Horror')">Horror</button>
       <button onclick="filterByGenre('Family')">Family</button>
       <button onclick="filterByGenre('Romantic')">Romantic</button>
       <button onclick="filterByGenre('Action')">Action</button>
       <button onclick="filterByGenre('All')">All</button>
-      <button class="random-btn" onclick="showRandomMovie()">🎲 Recommend Me a Random Movie</button>
+      <button onclick="showRandomMovie()">🎲 Recommend Me a Random Movie</button>
     </div>
 
-    <div id="movies" class="movie-list"></div>
+    <div id="movies" class="movie-grid"></div>
 
     <div id="popup" class="popup hidden">
       <div class="popup-content">
-        <span id="randomMovieText"></span>
-        <button onclick="closePopup()">Close</button>
+        <span id="closePopup" onclick="closePopup()">✖</span>
+        <h2>🎥 Your Random Movie</h2>
+        <p id="randomMovieText"></p>
       </div>
     </div>
   </div>
