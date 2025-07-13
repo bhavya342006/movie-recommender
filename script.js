@@ -9,6 +9,22 @@ let movies = [
   { name: "Sita Ramam", genre: "Romantic", rating: 8.5, language: "Telugu" },
   { name: "Jathi Ratnalu", genre: "Comedy", rating: 7.8, language: "Telugu" },
   { name: "Eega", genre: "Family", rating: 7.7, language: "Telugu" },
+  { name: "Tholi Prema", genre: "Romantic", rating: 7.7, language: "Telugu" },
+{ name: "Arjun Reddy", genre: "Romantic", rating: 8.0, language: "Telugu" },
+{ name: "Okkadu", genre: "Action", rating: 8.1, language: "Telugu" },
+{ name: "Julayi", genre: "Comedy", rating: 7.2, language: "Telugu" },
+{ name: "Bommarillu", genre: "Family", rating: 7.8, language: "Telugu" },
+{ name: "Nannaku Prematho", genre: "Action", rating: 7.6, language: "Telugu" },
+{ name: "Manam", genre: "Family", rating: 8.0, language: "Telugu" },
+{ name: "Orange", genre: "Romantic", rating: 6.5, language: "Telugu" },
+{ name: "Happy Days", genre: "Comedy", rating: 7.9, language: "Telugu" },
+{ name: "Swamy Ra Ra", genre: "Comedy", rating: 7.4, language: "Telugu" },
+{ name: "Rakshasudu", genre: "Horror", rating: 8.0, language: "Telugu" },
+{ name: "Awe", genre: "Horror", rating: 7.7, language: "Telugu" },
+{ name: "Jersey", genre: "Family", rating: 8.5, language: "Telugu" },
+{ name: "Bhale Bhale Magadivoy", genre: "Comedy", rating: 7.6, language: "Telugu" },
+{ name: "Majili", genre: "Romantic", rating: 7.2, language: "Telugu" },
+
   { name: "Ala Vaikunthapurramuloo", genre: "Family", rating: 8.0, language: "Telugu" },
 
   // Telugu - Underrated
